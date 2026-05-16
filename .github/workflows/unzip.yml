@@ -1,7 +1,9 @@
 name: Unzip Project
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   unzip:
@@ -11,10 +13,10 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: List Files
+      - name: Show Files
         run: ls
 
-      - name: Unzip File
+      - name: Unzip Project
         run: unzip ExamGuessAI_GitHubAPK.zip -d extracted
 
       - name: Show Extracted Files
