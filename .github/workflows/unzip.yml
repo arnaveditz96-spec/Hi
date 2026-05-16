@@ -1,12 +1,3 @@
-# GitHub Workflow File for Unzipping ExamGuessAI_GitHubAPK.zip
-
-Create this file inside your GitHub repository at:
-
-`.github/workflows/unzip.yml`
-
-Paste this code inside:
-
-```yaml
 name: Unzip Project
 
 on:
@@ -17,48 +8,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Unzip Exam Guess AI Project
-        run: |
-          unzip ExamGuessAI_GitHubAPK.zip -d extracted_project
+      - name: List Files
+        run: ls
+
+      - name: Unzip File
+        run: unzip ExamGuessAI_GitHubAPK.zip -d extracted
 
       - name: Show Extracted Files
-        run: |
-          ls -R extracted_project
-```
-
-# Where to Upload the ZIP File
-
-Upload:
-
-`ExamGuessAI_GitHubAPK.zip`
-
-in the ROOT of your GitHub repository.
-
-Example structure:
-
-```text
-Repository Root
-│
-├── ExamGuessAI_GitHubAPK.zip
-├── README.md
-└── .github
-    └── workflows
-        └── unzip.yml
-```
-
-# How to Run
-
-1. Push files to GitHub
-2. Open GitHub
-3. Go to Actions
-4. Select "Unzip Project"
-5. Click "Run workflow"
-
-The extracted files will appear inside:
-
-```text
-extracted_project/
-```
+        run: ls extracted
